@@ -64,7 +64,7 @@ echo '<table border="1">
         </tr>';
 
 
-foreach ($usuario as $id => $value) {
+foreach ($usuario as $id => $value) { //foreach estrutura de repetição em vetor.
 
     echo "<tr>";
 

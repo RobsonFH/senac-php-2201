@@ -26,9 +26,9 @@ $aluno = ['nome' => 'Robson', 'Matricula' => '12345'];
 function cadastraAluno(array $aluno):bool
 {
 
-        $f = fopen('alunos.csv', 'a');
-        $escreveu = fwrite( $f, "{$aluno['matricula']};\"{$aluno['nome']}\"\n");
-        fclose($f);
+        $f = fopen('alunos.csv', 'a');// abre um arquivo ou url
+        $escreveu = fwrite( $f, "{$aluno['matricula']};\"{$aluno['nome']}\"\n");//escreve o codigo da string
+        fclose($f);//fecha o arquivo aberto
 
         if($escreveu){
             return true;
