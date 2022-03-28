@@ -6,7 +6,7 @@
 Comentário de bloco
 */
 
-define("XPTO", "Valor sempre igual");
+define("XPTO", "Valor sempre igual"); //constante em php
 
 echo XPTO;
 
