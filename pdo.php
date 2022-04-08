@@ -1,29 +1,33 @@
 <?php
-//conecta no Banco de Dados
-$dsn = 'mysql:dbname=php;host=localhost';
-$user = 'root';
-$pass = '';
+
+//ligar o php ao banco de dados
+
+$dsn = 'mysql:dbname=phpLinguagemServidor;host=localhost';
+$user = "root";
+$pass = "";
 
 
 $bd = new PDO($dsn, $user, $pass);
-//Fim Conecta no Banco de Dados
+//FIM Conecta no Banco de Dados
 
 //INSERT
+$inseriu = $bd->exec('INSERT INTO Tarefas (descricao) VALUES ("Mais uma tarefa inserida via php")');
 
-$inseriu = $bd-> exec('INSERT INTO tarefas (descricao) VALUES ("Tarefa inserida via php")');
-
-
-//FIM INSERT
-
-if ($inseriu) {
-    
-    echo "GRAVOU";
+if($inseriu){
+ 
+    echo "Gravou!";
 
 }else{
-
-    echo "ai meu Deus!";
-
+    echo "Ai meu Deus!";
 }
+//FIM INSERT
 
-$apagou = $bd-> exec(' DELETE FROM tarefas WHERE id =13');
+//DELETE
+$apagou = $bd->exec('DELETE FROM Tarefas WHERE id=18');
+//FIM DELETE
+if($inseriu){
+ 
+    echo "Apagou!";
 
+}else{
+    echo "Ai meu Deus, não apagou!";}

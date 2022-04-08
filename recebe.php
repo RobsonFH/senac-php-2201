@@ -21,4 +21,3 @@ $f = fopen('alunos.csv', 'a');
 fwrite($f, "$usuario; $numero\r\n");
   
 fclose($f);
-
