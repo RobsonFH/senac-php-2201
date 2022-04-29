@@ -14,28 +14,30 @@
     <?php 
     require 'conexao.php';
     include 'header.php';
-    $tarefa = $_POST['tarefa'];
-    $stmp = $bd->prepare('INSERT INTO tarefas (descricao) VALUES (:tarefa)');
-    $stmp -> bindParam (':tarefa', $tarefa);
+    $id = $_POST['email'];
+    $nome = $_POST['nome'];
+    $senha = $_POST['senha'];
+    $confirmacao_senha = $_POST['confirmacao_senha'];
+    
+    if ($senha != $confirmacao_senha){
+        echo "Senha errada";
+        echo "<a href='formulario_usuario.php'>Voltar</a>";
+        exit();
+    }
+    $senha = password_hash($senha, PASSWORD_DEFAULT);
+    $stmp = $bd->prepare('INSERT INTO usuarios (id, nome, senha) VALUES (:id, :nome, :senha)');
+    $stmp -> bindParam (':id', $id);
+    $stmp -> bindParam (':nome', $nome);
+    $stmp -> bindParam (':senha', $senha);
+    
     if ($stmp->execute() ){
-        echo "Tarefa gravada!";
+        echo "Usuario gravada!";
+    
     }else {
-        echo "Tarefa não gravada!";
+        echo "Usuario não gravada!";
     }
     
-    //$repeticao = $repeticao > 1000 ? 1000 : $repeticao;
-/*for ($i = 0; $i < $repeticao; $i++){
-    echo "$usuario";
-    echo "<br>";
-    //if($i > 1000) break;
-        GERA CSV
-    $f = fopen('usuarios.csv', 'a');
-    $escreveu = fwrite( $f, "{$usuario};\"{$repeticao}\"\n");
-    fclose($f);
-    echo "<a href='index.php' class='btn btn-primary'>Voltar</a>
-";
-}*/
-    
+    echo "<a href='formulario_usuario.php'>Voltar</a>";
     
     ?>
 <body>

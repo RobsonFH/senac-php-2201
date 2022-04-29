@@ -1,41 +1,13 @@
-<?php
-
-require_once 'conexao.php';
-
-$stmt = $bd->query('SELECT id, nome FROM usuarios');//preparou a consulta
-
-$stmt->execute();//executou
-
-
-
-
-
-echo "<a href='formTarefa.php'>+ Novo Usuario </a><br>
-
-<form method='post'>
-<table border = '1'> 
-            <tr> 
-                <td>E-mail</td><td>nome</td><td>&nbsp;</td>
-             </tr>";
-
-
-//recupera primeiro registro, se colocar de novo, sempre vai resgatar a primeira inserção
-/*colocou a repetição da exibição dos registros*/
-while($registro = $stmt ->fetch(PDO::FETCH_ASSOC)){
-
-
-echo " <tr>
-        <td>{$registro['id']}</td>
-        <td>{$registro['nome']}</td>
-        <td><button name='id' formaction='editarUsuario.php'
-             value='{$registro['id']}'>Editar</button></td>
-        <td><button name='id' formaction='apagarUsuario.php' 
-            value='{$registro['id']}'>Apagar</button></td>
-  
-  
-  
-        </tr>";
-}
-
-
-echo "</table></form><br><a href='formUsuario.php'>voltar</a>";
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lendo Arquivo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</head>
+<body>
+    <?php
+        
