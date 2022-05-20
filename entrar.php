@@ -3,8 +3,13 @@ session_start();
 
 require_once 'conexao.php';
 
-$email = $_POST['email'];
-$senha = $_POST['senha'];
+$email = trim($_POST['email']?? '');
+$senha = trim($_POST['senha']?? '');
+
+if(empty($email) || empty($senha)){
+
+    header('location: index.php');
+}
 
 $stmt = $bd->prepare("SELECT senha FROM usuarios WHERE id = :email");
 

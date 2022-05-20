@@ -43,7 +43,9 @@ echo " <form method='post'>
             <label for='tarefa'>tarefa</label>
             <input type='text' id='tarefa'name='tarefa'
                 value='{$tarefa['descricao']}'>
-                $img<br><br>
+                $img<br>
+                <input type='file' name='figura'>
+                <br>
                 <input type='hidden' name='id' value='$id'>
             <input type='submit' value='Atualizar'>
         </form><br><br><a href='listarTarefa.php'>Voltar</a>";
